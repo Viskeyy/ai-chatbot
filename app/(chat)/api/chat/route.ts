@@ -36,6 +36,7 @@ import { after } from 'next/server';
 import type { Chat } from '@/lib/db/schema';
 import { differenceInSeconds } from 'date-fns';
 import { ChatSDKError } from '@/lib/errors';
+import { vivgrid } from '@vivgrid/ai-sdk-provider';
 
 export const maxDuration = 60;
 
@@ -147,7 +148,8 @@ export async function POST(request: Request) {
     const stream = createDataStream({
       execute: (dataStream) => {
         const result = streamText({
-          model: myProvider.languageModel(selectedChatModel),
+          // model: myProvider.languageModel(selectedChatModel),
+          model: vivgrid(),
           system: systemPrompt({ selectedChatModel, requestHints }),
           messages,
           maxSteps: 5,

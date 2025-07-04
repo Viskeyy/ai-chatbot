@@ -1,6 +1,7 @@
 import { myProvider } from '@/lib/ai/providers';
 import { createDocumentHandler } from '@/lib/artifacts/server';
 import { experimental_generateImage } from 'ai';
+import { vivgrid } from '@vivgrid/ai-sdk-provider';
 
 export const imageDocumentHandler = createDocumentHandler<'image'>({
   kind: 'image',
@@ -8,7 +9,8 @@ export const imageDocumentHandler = createDocumentHandler<'image'>({
     let draftContent = '';
 
     const { image } = await experimental_generateImage({
-      model: myProvider.imageModel('small-model'),
+      // model: myProvider.imageModel('small-model'),
+      model: vivgrid(),
       prompt: title,
       n: 1,
     });
@@ -26,7 +28,8 @@ export const imageDocumentHandler = createDocumentHandler<'image'>({
     let draftContent = '';
 
     const { image } = await experimental_generateImage({
-      model: myProvider.imageModel('small-model'),
+      // model: myProvider.imageModel('small-model'),
+      model: vivgrid(),
       prompt: description,
       n: 1,
     });
