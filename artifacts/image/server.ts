@@ -9,8 +9,8 @@ export const imageDocumentHandler = createDocumentHandler<'image'>({
     let draftContent = '';
 
     const { image } = await experimental_generateImage({
-      // model: myProvider.imageModel('small-model'),
-      model: vivgrid(),
+      model: myProvider.imageModel('small-model'),
+      // model: vivgrid(),
       prompt: title,
       n: 1,
     });
@@ -28,8 +28,8 @@ export const imageDocumentHandler = createDocumentHandler<'image'>({
     let draftContent = '';
 
     const { image } = await experimental_generateImage({
-      // model: myProvider.imageModel('small-model'),
-      model: vivgrid(),
+      model: myProvider.imageModel('small-model'),
+      // model: vivgrid(),
       prompt: description,
       n: 1,
     });
